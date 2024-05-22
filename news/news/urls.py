@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #from news.views import hello_geeks
-from news.fetchemails import getheaders
+from news.fetchemails import get_headers
+#from news.fetchemails import hi
+from news.getstocks import symbols_json
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('fetchemail/', getheaders),
-    
+    path('fetchemail/', get_headers),
+    #path('hi/',hi),
+    path('symbols_json/', symbols_json)
 ]

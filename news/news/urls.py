@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 #from news.views import hello_geeks
-from news.fetchemails import get_headers
+from news.showmails import get_headers
 #from news.fetchemails import hi
 from news.getstocks import symbols_json
 

@@ -1,4 +1,8 @@
 *.json
 lib/
+<<<<<<< HEAD
 library/
 Scripts/
+=======
+Scripts/
+>>>>>>> 443996c77e73500ac00b5f4e120194c4e3f26ead

@@ -6,12 +6,12 @@ from scipy.optimize import minimize
 import statsmodels.api as sm
 
 # Step 1: Select Assets and Market Index
-nifty_assets = ['ZOMATO.NS', 'HDFCBANK.NS', 'INFY.NS', 'HINDUNILVR.NS', 'TATAMOTORS.NS'
+nifty_assets = ['ZOMATO.NS', 'HDFCBANK.NS', 'INFY.NS', 'HINDUNILVR.NS', 'TATAMOTORS.NS',
                 'M&M.NS','LT.NS','HAL.NS','ONGC.NS','INDIGO.NS', 'ITC.NS','MCX.NS' , 'GOLD.AX']
 market_index = '^NSEI'  # Nifty 50
 
 # Step 2: Fetch Historical Data
-start_date = "2023-06-06"
+start_date = "2024-04-06"
 end_date = "2024-06-06"
 data = yf.download(nifty_assets + [market_index], start=start_date, end=end_date)['Adj Close']
 
@@ -38,7 +38,7 @@ initial_weights = [1./len(nifty_assets) for _ in range(len(nifty_assets))]
 
 optimal_result = minimize(minimize_risk, initial_weights, args=(expected_returns, cov_matrix), method='SLSQP', bounds=bounds, constraints=constraints)
 optimal_weights = optimal_result.x
-#optimal_weights = [0.3,0.05,0.2,0.2,0.05,0.25,0.25,0.2,0.05,0.05,.05,0.05,0.2]
+optimal_weights = [0.0,0.05,0.2,0.2,0.05,0.25,0.25,0.0,0.05,0.05,.05,0.0,0.2]
 # Step 7: Calculate Optimal Portfolio Performance
 optimal_returns, optimal_risk = portfolio_performance(optimal_weights, expected_returns, cov_matrix)
 
